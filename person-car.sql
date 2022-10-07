@@ -13,7 +13,7 @@ create table person (
         email VARCHAR(100),
         date_of_birth DATE NOT NULL,
         country_of_birth VARCHAR(50) NOT NULL,
-        car_id BIGINT REFRENCES car (id),
+        car_id BIGINT REFERENCES car (id),
         UNIQUE(car_id)
 );
 
@@ -22,5 +22,5 @@ INSERT INTO person (first_name, last_name, gender, email, date_of_birth, country
 INSERT INTO person (first_name, last_name, gender, email, date_of_birth, country_of_birth) VALUES ('Omar', 'Colmore', 'Male', null, '1921-04-03', 'Finland');
 INSERT INTO person (first_name, last_name, gender, email, date_of_birth, country_of_birth) VALUES ('John', 'Mutuschek', 'Male', 'jm@gmail.com', '1965-02-28', 'England');
 
-INSERT INTO car(make model, price) VALUES ('Land Rover', 'Sterling', '87665.38');
-INSERT INTO car(make model, price) VALUES ('GMC', "Acadia", '17662.69');
+INSERT INTO car(make, model, price) VALUES ('Land Rover', 'Sterling', '87665.38');
+INSERT INTO car(make, model, price) VALUES ('GMC', 'Acadia', '17662.69');
