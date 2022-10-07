@@ -1,1 +1,1 @@
-insert into person (id, first_name, last_name, email, gender, date_of_birth, country_of_birth) values (9000, 'Nathan', 'MacMillian', 'hello@gmail.com', 'HELLO', '2022-02-01', 'Czech Republic');
+INSERT INTO person (first_name, last_name, gender, email, date_of_birth, country_of_birth) VALUES ('John', 'Mutuschek', 'Male', 'j22m@gmail.com', '1965-02-28', 'USA');
