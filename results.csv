@@ -1,0 +1,5 @@
+id,first_name,last_name,gender,email,date_of_birth,country_of_birth,car_id,id,make,model,price
+2,Omar,Colmore,Male,,1921-04-03,Finland,1,1,Land Rover,Sterling,87665.38
+1,Fernanda,Beardon,Female,fb@gmail.com,1953-10-28,Comoros,2,2,GMC,Acadia,17662.69
+4,Nina,Kirsop,Female,,2022-04-01,Indonesia,,,,,
+3,John,Mutuschek,Male,jm@gmail.com,1965-02-28,England,,,,,
