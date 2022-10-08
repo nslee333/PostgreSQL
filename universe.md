@@ -23,7 +23,7 @@ Tasks for project:
 
 
 Tables: 
-	- Galaxy, Star, Planet, Moon, Commets
+	- Galaxy, Star, Planet, Moon
 	
 		Galaxy
 			- galaxy_id, 
@@ -46,5 +46,10 @@ Tables:
 			- planet_name (varchar), 
 			- planet_type (composition, varchar), 
 			- planet_star(foreign key to Star),
-			
-		
+			- planet_satellites (numeric, amount of moons)
+		Moon
+			- moon_id(bigserial, pkey),
+			- moon_name(varchar),
+			- moon_planet(fkey to planet),
+			- moon_orbital_speed_in_kms(numeric),
+			- moon_orbit_time_in_days(numeric),
