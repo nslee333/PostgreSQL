@@ -1,14 +1,3 @@
-Tasks for project:
-- DB named universe:
-- Tables: Galaxy, star, planet, moon.
-	- Table should have a primary key + increment (bigserial) -> snake case convention -> moon_id
-	- Name -> varchar
-	- Boolean x2
-	- 
-
-
-
-
 
 Tables: 
 	- Galaxy, Star, Planet, Moon
@@ -33,7 +22,9 @@ Tables:
 			- planet_name (varchar, UNIQUE, NOT NULL), 
 			- planet_type (composition, varchar, NOT NULL), 
 			- star_id(foreign key to Star, NOT NULL),
-			- planet_satellites (numeric, amount of moons, NOT NULL)
+			- planet_satelites_bool(boolean)
+			- planet_number_of_satellites(numeric, amount of moons)
+			- planet_has_rings(boolean)
 
 		Moon x 20
 			- moon_id(bigserial, pkey, NOT NULL),
@@ -51,8 +42,19 @@ Tables:
 
 
 
+Gather data here:
 
-model the values/data here:
+	Galaxies x 6
+
+	Stars x 6
+
+	Planets x 12
+
+	Moons x 20
+
+	Black Holes x 6
+
+
 
 
 
