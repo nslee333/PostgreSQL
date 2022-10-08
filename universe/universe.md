@@ -90,7 +90,19 @@ Gather data here:
 			- planet_has_rings(boolean)
 
 		'Jupiter', 'Gas Giant', '1', 'true', 80, false
-		''
+		'Saturn', 'Gas Giant', 1, true, 83, true
+		'Uranus', 'Ice Giant', 1, true, 27, false
+		'Neptune', 'Ice Giant', 1, true, 14, false
+		'Mercury', 'Terrestrial', 1, false, 0, false 
+		'Venus', 'Terrestrial', 1, false, 0, false,
+		'Earth', 'Terrestrial', 1, true, 1, false,
+		'Mars', 'Terrestrial', 1, true, 2, false,
+		'Pluto', 'Dwarf', 1, true, 5, false 
+		'Makemake', 'Dwarf', 1, true, 1, false,
+		'Haumea', 'Dwarf', 1, true, 2, false,
+		'50000 Quaoar', 'Dwarf', true, 1, false
+
+
 
 	Moons x 20
 	Moon x 20
@@ -108,20 +120,21 @@ Gather data here:
 	'Europa', 1, 13, 4
 	'Ganymede', 1, 10, 7
 	'Callisto', 1, 8, 16
-	''
-	''
-	''
-	''
-	''
-	''
-	''
-	''
-	''
-	''
-	''
-	''
+	'Themisto', 1, 1, 129
+	'Leda', 1, 1, 242,
+	'Ersa', 1, 1, 252,
+	'Himalia', 1, 1, 248,
+	'Pandia', 1, 1, 252,
+	'Lysithea', 1, 1, 258
+	'Elara', 1, 1, 258,
+	'Dia', 1, 1, 287,
+	'Carpo', 1, 1, 456,
+	'Valetudo', 1, 1, 500,
+	'Euporie', 1, 1, 550,
+	'Jupiter LV', 1, 1, 604
 
 	Black Holes x 6
+		
 
 
 
