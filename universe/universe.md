@@ -134,9 +134,16 @@ Gather data here:
 	'Jupiter LV', 1, 1, 604
 
 	Black Holes x 6
-		
+		Black Hole x 6 (in galaxies)
+			- bh_id (bigserial, not null, )
+			- bh_name (varchar, unique, not null)
+			- bh_type(varchar, not null)
+			- galaxy_id(references, not null)
+			- bh_solar_mass(numeric, not null)
 
-
-
-
-
+		'TON 618', 'Quasar', 2, 6.6 x 10^10 
+		'Messier 31', 'Supermassive', 1, 1.2 x 10^11 
+		'4C', 'Binary', 3, 1.1 x 10^10
+		'Sagittarius A*', 2, 1.1 x 10^10
+		'NGC 5033', 5, 1.1 x 10^10
+		'RX J11', 6, 1.1 x 10^10
