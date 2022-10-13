@@ -40,29 +40,23 @@ Tables:
 			- galaxy_id(references, not null)
 			- bh_solar_mass(numeric, not null)
 
-
-
 Gather data here:
 
 	Galaxies x 6
-	- VALUES('Andromeda Galaxy', 'Barred Spiral Galaxy', 'Andromeda Constellation', 1000000000000, 1000000000);
-	- VALUES('Milky Way Galaxy', 'Barred Spiral Galaxy', 'Sagittarius', 100000000000, 100000000000);
-	- VALUES('Triangulum Galaxy', 'Spiral Galaxy', 'Triangulum', 400000000000, 400000000000);
-	- VALUES ('Pinwheel Galaxy', 'Spirial Galaxy', 'Ursa Major', 1000000000000, 1000000000000);
-	- VALUES ('Black Eye Galaxy', 'Spirial Galaxy', 'Coma Berenices', 100000000000, 100000000000);
-	- VALUES ('Hoag's Object Galaxy', 'Ring Galaxy', 'Serpens Caput', 100000000000, 100000000000);
-
-
-
+		- VALUES('Andromeda Galaxy', 'Barred Spiral Galaxy', 'Andromeda Constellation', 1000000000000, 1000000000);
+		- VALUES('Milky Way Galaxy', 'Barred Spiral Galaxy', 'Sagittarius', 100000000000, 100000000000);
+		- VALUES('Triangulum Galaxy', 'Spiral Galaxy', 'Triangulum', 400000000000, 400000000000);
+		- VALUES ('Pinwheel Galaxy', 'Spirial Galaxy', 'Ursa Major', 1000000000000, 1000000000000);
+		- VALUES ('Black Eye Galaxy', 'Spirial Galaxy', 'Coma Berenices', 100000000000, 100000000000);
+		- VALUES ('Hoag's Object Galaxy', 'Ring Galaxy', 'Serpens Caput', 100000000000, 100000000000);
 
 	Stars x 6
-	- VALUES('The Sun', 'G type', 2, 8);
-	- VALUES('Kepler-11', 'Solar-type', 2, 6);
-	- VALUES('Kepler-90', 'F-Type', 2, 8);
-	- VALUES('Proxima Centauri', 'Low-mass', 3, 3);
-	- VALUES('Tau Ceti', 'Solar-Type', 2, 8);
-	- VALUES('TRAPPIST', 'Red Dwarf', 2, 7);
-
+		- VALUES('The Sun', 'G type', 2, 8);
+		- VALUES('Kepler-11', 'Solar-type', 2, 6);
+		- VALUES('Kepler-90', 'F-Type', 2, 8);
+		- VALUES('Proxima Centauri', 'Low-mass', 3, 3);
+		- VALUES('Tau Ceti', 'Solar-Type', 2, 8);
+		- VALUES('TRAPPIST', 'Red Dwarf', 2, 7);
 
 	Planets x 12
 		'Jupiter', 'Gas Giant', 1, true, 80, false
@@ -77,40 +71,30 @@ Gather data here:
 		'Makemake', 'Dwarf', 1, true, 1, false,
 		'Haumea', 'Dwarf', 1, true, 2, false,
 		'50000 Quaoar', 'Dwarf', true, 1, false
-
-
-
+	
 	Moons x 20
-
-	'Metis', 1, 1, 1
-	'Adrastea', 1, 31, 1
-	'Amalthea', 1, 26, 1
-	'Thebe', 1, 23, 1
-	'Io', 1, 17, 2
-	'Europa', 1, 13, 4
-	'Ganymede', 1, 10, 7
-	'Callisto', 1, 8, 16
-	'Themisto', 1, 1, 129
-	'Leda', 1, 1, 242
-	'Ersa', 1, 1, 252
-	'Himalia', 1, 1, 248
-	'Pandia', 1, 1, 252
-	'Lysithea', 1, 1, 258
-	'Elara', 1, 1, 258
-	'Dia', 1, 1, 287
-	'Carpo', 1, 1, 456
-	'Valetudo', 1, 1, 500
-	'Euporie', 1, 1, 550
-	'Jupiter LV', 1, 1, 604
+		'Metis', 1, 1, 1
+		'Adrastea', 1, 31, 1
+		'Amalthea', 1, 26, 1
+		'Thebe', 1, 23, 1
+		'Io', 1, 17, 2
+		'Europa', 1, 13, 4
+		'Ganymede', 1, 10, 7
+		'Callisto', 1, 8, 16
+		'Themisto', 1, 1, 129
+		'Leda', 1, 1, 242
+		'Ersa', 1, 1, 252
+		'Himalia', 1, 1, 248
+		'Pandia', 1, 1, 252
+		'Lysithea', 1, 1, 258
+		'Elara', 1, 1, 258
+		'Dia', 1, 1, 287
+		'Carpo', 1, 1, 456
+		'Valetudo', 1, 1, 500
+		'Euporie', 1, 1, 550
+		'Jupiter LV', 1, 1, 604
 
 	Black Holes x 6
-		Black Hole x 6 (in galaxies)
-			- bh_id (bigserial, not null, )
-			- bh_name (varchar, unique, not null)
-			- bh_type(varchar, not null)
-			- galaxy_id(references, not null)
-			- bh_solar_mass(numeric, not null)
-
 		'TON 618', 'Quasar', 2, 66000000000
 		'Messier 31', 'Supermassive', 1, 120000000000
 		'4C', 'Binary', 3, 11000000000
