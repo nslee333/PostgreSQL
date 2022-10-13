@@ -1,5 +1,3 @@
-CREATE DATABASE universe;
-
 CREATE TABLE galaxy(
     galaxy_id BIGSERIAL PRIMARY KEY NOT NULL,
     galaxy_name VARCHAR(50) UNIQUE NOT NULL,
@@ -24,7 +22,7 @@ CREATE TABLE planet(
     star_id BIGINT REFERENCES star(star_id) NOT NULL,
     planet_satellites_bool BOOLEAN,
     planet_satellites NUMERIC NOT NULL,
-    planet_has_rings BOOLEAN,
+    planet_has_rings BOOLEAN
 );
 
 CREATE TABLE moon(
@@ -94,7 +92,7 @@ VALUES('Makemake', 'Dwarf', 1, true, 1, false);
 INSERT INTO planet(planet_name, planet_type, star_id, planet_satellites_bool, planet_satellites, planet_has_rings) 
 VALUES('Haumea', 'Dwarf', 1, true, 2, false);
 INSERT INTO planet(planet_name, planet_type, star_id, planet_satellites_bool, planet_satellites, planet_has_rings) 
-VALUES('50000 Quaoar', 'Dwarf', true, 1, false);
+VALUES('50000 Quaoar', 'Dwarf', 1, true, 1, false);
 
 INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time) 
 VALUES('Metis', 1, 1, 1);
@@ -144,8 +142,8 @@ VALUES('Messier 31', 'Supermassive', 1, 120000000000);
 INSERT INTO black_hole(bh_name, bh_type, galaxy_id, bh_solar_mass) 
 VALUES('4C', 'Binary', 3, 11000000000);
 INSERT INTO black_hole(bh_name, bh_type, galaxy_id, bh_solar_mass) 
-VALUES('Sagittarius A*', 2, 11000000000);
+VALUES('Sagittarius A*','Supermassive', 2, 11000000000);
 INSERT INTO black_hole(bh_name, bh_type, galaxy_id, bh_solar_mass) 
-VALUES('NGC 5033', 5, 11000000000);
+VALUES('NGC 5033', 'Supermassive', 5, 11000000000);
 INSERT INTO black_hole(bh_name, bh_type, galaxy_id, bh_solar_mass) 
-VALUES('RX J11', 6, 11000000000);
+VALUES('RX J11', 'Supermasive', 6, 11000000000);
