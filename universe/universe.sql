@@ -138,7 +138,7 @@ INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time)
 VALUES('Jupiter LV', 1, 1, 604);
 
 INSERT INTO black_hole(bh_name, bh_type, galaxy_id, bh_solar_mass) 
-VALUES('TON 618', 'Quasar', 2, 66000000000 );
+VALUES('TON 618', 'Quasar', 2, 66000000000);
 INSERT INTO black_hole(bh_name, bh_type, galaxy_id, bh_solar_mass) 
 VALUES('Messier 31', 'Supermassive', 1, 120000000000);
 INSERT INTO black_hole(bh_name, bh_type, galaxy_id, bh_solar_mass) 
