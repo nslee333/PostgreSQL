@@ -52,56 +52,50 @@ INSERT INTO galaxy(galaxy_name, galaxy_type, galaxy_constellation, estimated_sta
 INSERT INTO galaxy(galaxy_name, galaxy_type, galaxy_constellation, estimated_stars, estimated_planets) VALUES();
 INSERT INTO galaxy(galaxy_name, galaxy_type, galaxy_constellation, estimated_stars, estimated_planets) VALUES();
 
-INSERT INTO star(star) VALUES();
-INSERT INTO star(star) VALUES();
-INSERT INTO star(star) VALUES();
-INSERT INTO star(star) VALUES();
-INSERT INTO star(star) VALUES();
-INSERT INTO star(star) VALUES();
+INSERT INTO star(star_name, star_type, galaxy_id, orbiting_planets) VALUES();
+INSERT INTO star(star_name, star_type, galaxy_id, orbiting_planets) VALUES();
+INSERT INTO star(star_name, star_type, galaxy_id, orbiting_planets) VALUES();
+INSERT INTO star(star_name, star_type, galaxy_id, orbiting_planets) VALUES();
+INSERT INTO star(star_name, star_type, galaxy_id, orbiting_planets) VALUES();
+INSERT INTO star(star_name, star_type, galaxy_id, orbiting_planets) VALUES();
 
-INSERT INTO planet() VALUES();
-INSERT INTO planet() VALUES();
-INSERT INTO planet() VALUES();
-INSERT INTO planet() VALUES();
-INSERT INTO planet() VALUES();
-INSERT INTO planet() VALUES();
-INSERT INTO planet() VALUES();
-INSERT INTO planet() VALUES();
-INSERT INTO planet() VALUES();
-INSERT INTO planet() VALUES();
-INSERT INTO planet() VALUES();
-INSERT INTO planet() VALUES();
+INSERT INTO planet(planet_name, planet_type, star_id, planet_satellites_bool, planet_satellites, planet_has_rings) VALUES();
+INSERT INTO planet(planet_name, planet_type, star_id, planet_satellites_bool, planet_satellites, planet_has_rings) VALUES();
+INSERT INTO planet(planet_name, planet_type, star_id, planet_satellites_bool, planet_satellites, planet_has_rings) VALUES();
+INSERT INTO planet(planet_name, planet_type, star_id, planet_satellites_bool, planet_satellites, planet_has_rings) VALUES();
+INSERT INTO planet(planet_name, planet_type, star_id, planet_satellites_bool, planet_satellites, planet_has_rings) VALUES();
+INSERT INTO planet(planet_name, planet_type, star_id, planet_satellites_bool, planet_satellites, planet_has_rings) VALUES();
+INSERT INTO planet(planet_name, planet_type, star_id, planet_satellites_bool, planet_satellites, planet_has_rings) VALUES();
+INSERT INTO planet(planet_name, planet_type, star_id, planet_satellites_bool, planet_satellites, planet_has_rings) VALUES();
+INSERT INTO planet(planet_name, planet_type, star_id, planet_satellites_bool, planet_satellites, planet_has_rings) VALUES();
+INSERT INTO planet(planet_name, planet_type, star_id, planet_satellites_bool, planet_satellites, planet_has_rings) VALUES();
+INSERT INTO planet(planet_name, planet_type, star_id, planet_satellites_bool, planet_satellites, planet_has_rings) VALUES();
+INSERT INTO planet(planet_name, planet_type, star_id, planet_satellites_bool, planet_satellites, planet_has_rings) VALUES();
 
-INSERT INTO moon() VALUES();
-INSERT INTO moon() VALUES();
-INSERT INTO moon() VALUES();
-INSERT INTO moon() VALUES();
-INSERT INTO moon() VALUES();
-INSERT INTO moon() VALUES();
-INSERT INTO moon() VALUES();
-INSERT INTO moon() VALUES();
-INSERT INTO moon() VALUES();
-INSERT INTO moon() VALUES();
-INSERT INTO moon() VALUES();
-INSERT INTO moon() VALUES();
-INSERT INTO moon() VALUES();
-INSERT INTO moon() VALUES();
-INSERT INTO moon() VALUES();
-INSERT INTO moon() VALUES();
-INSERT INTO moon() VALUES();
-INSERT INTO moon() VALUES();
-INSERT INTO moon() VALUES();
-INSERT INTO moon() VALUES();
+INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time) VALUES();
+INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time) VALUES();
+INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time) VALUES();
+INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time) VALUES();
+INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time) VALUES();
+INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time) VALUES();
+INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time) VALUES();
+INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time) VALUES();
+INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time) VALUES();
+INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time) VALUES();
+INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time) VALUES();
+INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time) VALUES();
+INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time) VALUES();
+INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time) VALUES();
+INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time) VALUES();
+INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time) VALUES();
+INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time) VALUES();
+INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time) VALUES();
+INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time) VALUES();
+INSERT INTO moon(moon_name, planet_id, moon_orbital_speed_kms, moon_orbit_time) VALUES();
 
-INSERT INTO black_hole() VALUES();
-INSERT INTO black_hole() VALUES();
-INSERT INTO black_hole() VALUES();
-INSERT INTO black_hole() VALUES();
-INSERT INTO black_hole() VALUES();
-INSERT INTO black_hole() VALUES();
-
-
-
-
-
-
+INSERT INTO black_hole(bh_name, bh_type, galaxy_id, bh_solar_mass) VALUES();
+INSERT INTO black_hole(bh_name, bh_type, galaxy_id, bh_solar_mass) VALUES();
+INSERT INTO black_hole(bh_name, bh_type, galaxy_id, bh_solar_mass) VALUES();
+INSERT INTO black_hole(bh_name, bh_type, galaxy_id, bh_solar_mass) VALUES();
+INSERT INTO black_hole(bh_name, bh_type, galaxy_id, bh_solar_mass) VALUES();
+INSERT INTO black_hole(bh_name, bh_type, galaxy_id, bh_solar_mass) VALUES();
