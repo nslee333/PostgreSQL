@@ -11,6 +11,8 @@ Insert the data
 Query the database.
 
 
+HERE::: Stopped at creating + running worldcup.sql. :) <3
+
 
 REQUIREMENTS:
     TABLES = teams, games
