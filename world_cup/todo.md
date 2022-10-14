@@ -4,14 +4,12 @@ Query the database for useful statistics.
 
 1. 
 
-Create database
 
 Insert the data
 
 Query the database.
 
 
-HERE::: Stopped at creating + running worldcup.sql. :) <3
 
 
 REQUIREMENTS:
@@ -31,8 +29,6 @@ REQUIREMENTS:
 insert_data.sh
 queries.sh
 
-    chmod +x ./insert_data.sh
-    chmod +x ./queries.sh
 
 insert_data.sh
     INSERT each team to TEAMS
