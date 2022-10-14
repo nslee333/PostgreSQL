@@ -13,7 +13,6 @@ Query the database.
 
 
 REQUIREMENTS:
-    dbname = 'worldcup'
     TABLES = teams, games
     teams
         team_id SERIAL PRIMARY KEY NOT NULL;
