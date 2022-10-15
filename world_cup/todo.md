@@ -31,8 +31,7 @@ queries.sh
 
 
 insert_data.sh
-    INSERT each team to TEAMS
-        SHOULD BE 24 rows.
+
     Add row per game 
         32 rows
 
