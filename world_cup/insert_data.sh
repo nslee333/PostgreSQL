@@ -22,35 +22,34 @@ fi
 # Insert data into teams 
 # 24 rows
 
-cat games.csv | while IFS="," read WINNER OPPONENT
-  do  
+cat games.csv | while IFS="," read YEAR ROUND WINNER OPPONENT WINNER_GOALS OPPONENT_GOALS 
+  do
     if [[ $WINNER != winner ]]
     then
       WINNER_ID=$($PSQL "SELECT name FROM teams WHERE name='$WINNER'")
-
       if [[ -z $WINNER_ID ]]
       then
-        INSERT_WINNER_RESULT=$($PSQL "INSERT INTO teams(name) VALUES('$WINNER_ID')")
-        if [[ INSERT_WINNER_RESULT = "INSERT 0 1" ]]
+        INSERT_WINNER_RESULT=$($PSQL "INSERT INTO teams(name) VALUES('$WINNER')")
+        if [[ $INSERT_WINNER_RESULT == "INSERT 0 1" ]]
         then
-          echo "Inserted team1 into teams"
+          echo "Inserted $WINNER into teams"
         fi
       fi
+    fi
 
       if [[ $OPPONENT != opponent ]]
       then
         OPPONENT_ID=$($PSQL "SELECT name FROM teams WHERE name='$OPPONENT'")
-          if [[ -z OPPONENT_ID ]]
-          then
-            INSERT_OPPONENT_RESULT=$($PSQL "INSERT INTO teams(name) VALUES('$OPPONENT')")
+        if [[ -z $OPPONENT_ID ]]
+        then
+          INSERT_OPPONENT_RESULT=$($PSQL "INSERT INTO teams(name) VALUES('$OPPONENT')")
 
-            if [[ INSERT_OPPONENT_RESULT = "INSERT 0 1" ]]
-            then
-              echo "Inserted team 2 into teams"
-            fi
+          if [[ $INSERT_OPPONENT_RESULT == "INSERT 0 1" ]]
+          then
+            echo "Inserted $OPPONENT into teams"
           fi
+        fi
       fi
-    fi
   done
 
 
