@@ -7,12 +7,9 @@ else
   PSQL="psql --username=nslee333 --dbname=worldcup -t --no-align -c"
 fi
 
-echo $($PSQL "TRUNCATE games, teams")
+echo $($PSQL "TRUNCATE games, teams RESTART IDENTITY")
 
-echo $($PSQL "ALTER SEQUENCE games_pkey RESTART WITH 1")
-
-echo $($PSQL "ALTER SEQUENCE teams_pkey RESTART WITH 1")
-
+# Insert winner into teams
 cat games.csv | while IFS="," read YEAR ROUND WINNER OPPONENT WINNER_GOALS OPPONENT_GOALS
   do
     if [[ $WINNER != winner ]]
@@ -27,6 +24,7 @@ cat games.csv | while IFS="," read YEAR ROUND WINNER OPPONENT WINNER_GOALS OPPON
         fi
       fi
     fi
+      # Insert opponent into teams
       if [[ $OPPONENT != opponent ]]
       then
         OPPONENT_ID=$($PSQL "SELECT name FROM teams WHERE name='$OPPONENT'")
@@ -40,7 +38,7 @@ cat games.csv | while IFS="," read YEAR ROUND WINNER OPPONENT WINNER_GOALS OPPON
           fi
         fi
       fi
-
+      # Insert game into games
     if [[ $YEAR != year ]]
     then
         INSERT_WINNER_ID=$($PSQL "SELECT team_id FROM teams WHERE name='$WINNER'")
