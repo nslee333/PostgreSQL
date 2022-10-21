@@ -2,7 +2,8 @@
 
 if [[ $1 == "test" ]]
 then
-  PSQL="psql --username=postgres --dbname=worldcuptest -t --no-align -c"
+  PSQL="psql --username=;
+   --dbname=worldcuptest -t --no-align -c"
 else
   PSQL="psql --username=nslee333 --dbname=worldcup -t --no-align -c"
 fi
