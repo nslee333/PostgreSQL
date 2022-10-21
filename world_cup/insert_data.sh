@@ -46,7 +46,7 @@ cat games.csv | while IFS="," read YEAR ROUND WINNER OPPONENT WINNER_GOALS OPPON
         INSERT_GAME_RESULT=$($PSQL "INSERT INTO games(year, round, winner_id, opponent_id, winner_goals, opponent_goals) VALUES('$YEAR', '$ROUND', '$INSERT_WINNER_ID', '$INSERT_OPPONENT_ID', '$WINNER_GOALS', '$OPPONENT_GOALS')")
         if [[ $INSERT_GAME_RESULT == "INSERT 0 1" ]]
         then
-          echo "Inserted game into teams"
+          echo "Inserted game into games"
         fi
     fi
   done
