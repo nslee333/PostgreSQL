@@ -1,6 +1,7 @@
 #!/bin/bash
+export PGPASSWORD='password'
 
-PSQL="psql --username=postgres --dbname=worldcup --no-align --tuples-only -c"
+PSQL="psql --host=localhost --username=postgres --dbname=worldcup --no-align --tuples-only -c"
 
 # Do not change code above this line. Use the PSQL variable above to query your database.
 
