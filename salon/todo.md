@@ -8,7 +8,6 @@ Database = salon
             foreign key => service_id services
             time column varchar
         Services
-            
             name
             3 rows 
 
