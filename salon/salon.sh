@@ -7,9 +7,14 @@ echo $($PSQL "TRUNCATE customers RESTART IDENTITY CASCADE")
 echo -e "\n~~ Welcome to my salon ~~\n"
 
 echo "Here's our services:"
+
+# Need to swap out hard coded services echo for a loop that checks for services. ------
+
+
+
 echo -e "1) Cut\n2) Trim\n3) Color\n4) Shave\n5) Highlights"
 echo -e "\nPlease enter: \n- Service id\n- Phone number\n- Name\n- Appointment Time"
-read -r SERVICE_ID_SELECTED, CUSTOMER_PHONE, CUSTOMER_NAME, SERVICE_TIME
+read -r SERVICE_ID_SELECTED, CUSTOMER_PHONE, CUSTOMER_NAME, SERVICE_TIME;
 
 if [[ -z $CUSTOMER_PHONE ]]
 then
