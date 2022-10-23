@@ -1,0 +1,1 @@
+stopped at trying to perform a pg_dump of the freecodecamp bike database.
