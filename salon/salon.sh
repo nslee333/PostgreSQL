@@ -16,6 +16,8 @@ echo -e "1) Cut\n2) Trim\n3) Color\n4) Shave\n5) Highlights"
 echo -e "\nPlease enter: \n- Service id\n- Phone number\n- Name\n- Appointment Time"
 read -r SERVICE_ID_SELECTED, CUSTOMER_PHONE, CUSTOMER_NAME, SERVICE_TIME;
 
+# Need to wait here
+
 if [[ -z $CUSTOMER_PHONE ]]
 then
     INSERT_RESULT=$($PSQL "INSERT INTO customers(name, phone) VALUES('$CUSTOMER_NAME', '$CUSTOMER_PHONE')")
