@@ -51,3 +51,7 @@ SERVICE_NAME=$($PSQL "SELECT services.name FROM appointments LEFT JOIN customers
 echo "I have put you down for $SERVICE_NAME at $SERVICE_TIME, $CUSTOMER_NAME"
 
 # 3 444-4444 Nathan 10:30
+
+# Ended at testing for all edge cases.
+
+# Need to think through this.
