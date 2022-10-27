@@ -25,6 +25,9 @@ echo -e "1) Cut\n2) Trim\n3) Color\n4) Shave\n5) Highlights"
 echo -e "\nPlease enter: \n- Service id\n- Phone number\n- Appointment Time"
 read -r SERVICE_ID_SELECTED CUSTOMER_PHONE SERVICE_TIME
 
+echo "$SERVICE_ID_SELECTED $CUSTOMER_PHONE $SERVICE_TIME"
+
+echo $($PSQL "SELECT * FROM services;")
 
 CUSTOMER_QUERY_RESULT=$($PSQL "SELECT * FROM customers WHERE phone = '$CUSTOMER_PHONE'")
 
@@ -45,6 +48,6 @@ INSERT_CUSTOMER=$($PSQL"INSERT INTO appointments(customer_id, service_id, time) 
 
 SERVICE_NAME=$($PSQL "SELECT services.name FROM appointments LEFT JOIN customers USING(customer_id) LEFT JOIN services USING(service_id);")
 
-echo "I have put you down for '$SERVICE_NAME' at '$SERVICE_TIME', '$CUSTOMER_NAME'"
+echo "I have put you down for $SERVICE_NAME at $SERVICE_TIME, $CUSTOMER_NAME"
 
 # 3 444-4444 Nathan 10:30
