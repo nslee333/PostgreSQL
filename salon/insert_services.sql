@@ -1,0 +1,1 @@
+INSERT INTO services(name) VALUES('cut'), ('trim'), ('color'), ('shave'), ('highlights');

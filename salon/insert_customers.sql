@@ -1,0 +1,1 @@
+INSERT INTO customers(name, phone) VALUES('Nathan', '555-5555'), ('Taylor', '111-1111'), ('Emily', '222-2222'), ('Charles', '444-4444'), ('Marina', '777-7777');
