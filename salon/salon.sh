@@ -20,30 +20,49 @@ echo "Here's our services:"
 #     echo "$FIRST) $SECOND"
 # done
 
+PROMPT="1) Cut\n2) Trim\n3) Color\n4) Shave\n5) Highlights"
 
-echo -e "1) Cut\n2) Trim\n3) Color\n4) Shave\n5) Highlights"
-echo -e "\nPlease enter: \n- Service id\n- Phone number\n- Appointment Time"
-read -r SERVICE_ID_SELECTED CUSTOMER_PHONE SERVICE_TIME
+echo -e $PROMPT
 
-echo "$SERVICE_ID_SELECTED $CUSTOMER_PHONE $SERVICE_TIME"
+echo -e "\nPlease enter the service:"
+read -r SERVICE_ID_SELECTED 
 
-echo $($PSQL "SELECT * FROM services;")
+SERVICE_QUERY=$($PSQL "SELECT * FROM services WHERE service_id = '$SERVICE_ID_SELECTED'")
+
+if [[ $SERVICE_ID_SELECTED != $SERVICE_QUERY ]]
+then
+    echo -e "Please try again.\n$PROMPT"
+fi
+
+echo -e "\nPlease enter your phone number:"
+read CUSTOMER_PHONE 
+
+echo -e "\nPlease enter an appointment time:"
+read SERVICE_TIME
+
+
 
 CUSTOMER_QUERY_RESULT=$($PSQL "SELECT * FROM customers WHERE phone = '$CUSTOMER_PHONE'")
 
 if [[ -z $CUSTOMER_QUERY_RESULT ]]
 then
     echo "I don't have you in our system, please enter your name and we'll set up an account for you."
-    read CUSTOMER_NAME
+    read INSERT_NAME
 
-    INSERT_RESULT=$($PSQL "INSERT INTO customers(name, phone) VALUES('$CUSTOMER_NAME', '$CUSTOMER_PHONE')")
+    $PSQL "INSERT INTO customers(name, phone) VALUES('$INSERT_NAME', '$CUSTOMER_PHONE')"
+    CUSTOMER_NAME=$($PSQL "SELECT name FROM customers WHERE phone = '$CUSTOMER_PHONE'")
 else
     CUSTOMER_NAME=$($PSQL "SELECT name FROM customers WHERE phone = '$CUSTOMER_PHONE'")
 fi
 
 CUSTOMER_ID=$($PSQL "SELECT customer_id FROM customers WHERE phone = '$CUSTOMER_PHONE'")
 
-INSERT_CUSTOMER=$($PSQL"INSERT INTO appointments(customer_id, service_id, time) VALUES('$CUSTOMER_ID', '$SERVICE_ID_SELECTED', '$SERVICE_TIME')")
+if [[ $CUSTOMER_ID ]]
+then
+    INSERT_CUSTOMER=$($PSQL"INSERT INTO appointments(customer_id, service_id, time) VALUES('$CUSTOMER_ID', '$SERVICE_ID_SELECTED', '$SERVICE_TIME')")
+    if [[  ]]
+fi
+
 
 
 SERVICE_NAME=$($PSQL "SELECT services.name FROM appointments LEFT JOIN customers USING(customer_id) LEFT JOIN services USING(service_id);")
