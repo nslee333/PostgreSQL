@@ -1,79 +1,56 @@
 #!/bin/bash
 
-PSQL="psql --username=nslee333 --dbname=salon -t --no-align -c"
+PSQL="psql --username=nslee333 --dbname=salon -t -c"
 
-# echo $($PSQL "TRUNCATE customers RESTART IDENTITY CASCADE")
+echo $($PSQL "TRUNCATE customers RESTART IDENTITY CASCADE")
 
 echo -e "\n~~ Welcome to my salon ~~\n"
 
-echo "Here's our services:"
+while true
+do
+    SERVICES_QUERY=$($PSQL "SELECT service_id, name FROM services;")
 
-# Need to swap out hard coded services echo for a loop that checks for services. ------
+    echo "Here's our services:"
 
-# ID=$($PSQL "SELECT service_id, name FROM services")
+    echo "$SERVICES_QUERY" | while read SERVICE_ID BAR NAME
+    do
+        echo "$SERVICE_ID) $NAME"
+    done
+    
+    echo -e "\nPlease enter the id of the service you need."
+    read SERVICE_ID_SELECTED
+    SERVICE_QUERY=$($PSQL "SELECT service_id FROM services WHERE service_id = $SERVICE_ID_SELECTED")
 
+    if [[ -z $SERVICE_QUERY ]]
+    then
+        echo "We don't have that option, please try again"
+        continue
+    else
+        break
+    fi
+done
 
-# Come back to this
-
-# echo "$ID" | while read -r FIRST BAR SECOND
-# do
-#     echo "$FIRST) $SECOND"
-# done
-
-PROMPT="1) Cut\n2) Trim\n3) Color\n4) Shave\n5) Highlights"
-
-echo -e $PROMPT
-
-echo -e "\nPlease enter the service:"
-read -r SERVICE_ID_SELECTED 
-
-SERVICE_QUERY=$($PSQL "SELECT * FROM services WHERE service_id = '$SERVICE_ID_SELECTED'")
-
-if [[ $SERVICE_ID_SELECTED != $SERVICE_QUERY ]]
-then
-    echo -e "Please try again.\n$PROMPT"
-else
-    echo -e "\nPlease enter your phone number:"
-    read CUSTOMER_PHONE 
-
-    echo -e "\nPlease enter an appointment time:"
-    read SERVICE_TIME
-
-
-fi
-
-# Need to loop back to start for every bad selection.
-
-# want to figure this out tonight.
-
-
+echo -e "\nPlease enter your phone number:"
+read CUSTOMER_PHONE
 
 CUSTOMER_QUERY_RESULT=$($PSQL "SELECT * FROM customers WHERE phone = '$CUSTOMER_PHONE'")
 
 if [[ -z $CUSTOMER_QUERY_RESULT ]]
 then
     echo "I don't have you in our system, please enter your name and we'll set up an account for you."
-    read INSERT_NAME
-
-    $PSQL "INSERT INTO customers(name, phone) VALUES('$INSERT_NAME', '$CUSTOMER_PHONE')"
-    CUSTOMER_NAME=$($PSQL "SELECT name FROM customers WHERE phone = '$CUSTOMER_PHONE'")
-else
-    CUSTOMER_NAME=$($PSQL "SELECT name FROM customers WHERE phone = '$CUSTOMER_PHONE'")
+    read CUSTOMER_NAME
+    INSERT_RESULT=$($PSQL "INSERT INTO customers(name, phone) VALUES('$CUSTOMER_NAME', '$CUSTOMER_PHONE')")
 fi
+
+echo -e "\nPlease enter an appointment time:"
+read SERVICE_TIME
 
 CUSTOMER_ID=$($PSQL "SELECT customer_id FROM customers WHERE phone = '$CUSTOMER_PHONE'")
 
-if [[ $CUSTOMER_ID ]]
-then
-    INSERT_CUSTOMER=$($PSQL"INSERT INTO appointments(customer_id, service_id, time) VALUES('$CUSTOMER_ID', '$SERVICE_ID_SELECTED', '$SERVICE_TIME')")
-    if [[  ]]
-fi
+INSERT_CUSTOMER=$($PSQL"INSERT INTO appointments(customer_id, service_id, time) VALUES('$CUSTOMER_ID', '$SERVICE_ID_SELECTED', '$SERVICE_TIME')")
 
+SERVICE_NAME=$($PSQL "SELECT services.name FROM appointments LEFT JOIN customers USING(customer_id) LEFT JOIN services USING(service_id)")
 
+CUSTOMER_NAME=$($PSQL "SELECT name FROM customers WHERE phone = '$CUSTOMER_PHONE'")
 
-SERVICE_NAME=$($PSQL "SELECT services.name FROM appointments LEFT JOIN customers USING(customer_id) LEFT JOIN services USING(service_id);")
-
-echo "I have put you down for $SERVICE_NAME at $SERVICE_TIME, $CUSTOMER_NAME"
-
-# 3 444-4444 Nathan 10:30
-
+echo -e "I have put you down for a $SERVICE_NAME at $SERVICE_TIME, $CUSTOMER_NAME." | sed 's/  / /g'
