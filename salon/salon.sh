@@ -32,13 +32,19 @@ SERVICE_QUERY=$($PSQL "SELECT * FROM services WHERE service_id = '$SERVICE_ID_SE
 if [[ $SERVICE_ID_SELECTED != $SERVICE_QUERY ]]
 then
     echo -e "Please try again.\n$PROMPT"
+else
+    echo -e "\nPlease enter your phone number:"
+    read CUSTOMER_PHONE 
+
+    echo -e "\nPlease enter an appointment time:"
+    read SERVICE_TIME
+
+
 fi
 
-echo -e "\nPlease enter your phone number:"
-read CUSTOMER_PHONE 
+# Need to loop back to start for every bad selection.
 
-echo -e "\nPlease enter an appointment time:"
-read SERVICE_TIME
+# want to figure this out tonight.
 
 
 
@@ -71,6 +77,3 @@ echo "I have put you down for $SERVICE_NAME at $SERVICE_TIME, $CUSTOMER_NAME"
 
 # 3 444-4444 Nathan 10:30
 
-# Ended at testing for all edge cases.
-
-# Need to think through this.
