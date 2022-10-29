@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SYM_REGEX='^[A-Z]+[a-z]*$'
+SYM_REGEX='^[A-Z]{1}[a-z]{0,1}$'
 
 PSQL="psql --username=nslee333 --dbname=periodic_table -t -c"
 
@@ -20,7 +20,7 @@ then
     then
             echo $QUERY_RESULTS | while read TYPE_ID BAR ATOMIC_NUMBER BAR SYMBOL BAR NAME BAR ATOMIC_MASS BAR MELTING_POINT BAR BOILING_POINT BAR METAL_TYPE
             do
-                echo "The element with the atomic number $ATOMIC_NUMBER is $NAME ($SYMBOL). It's a $METAL_TYPE, with a mass of $ATOMIC_MASS amu. $NAME has a melting point of $MELTING_POINT celsius and a boiling point of $BOILING_POINT celsius."
+                echo "The element with atomic number $ATOMIC_NUMBER is $NAME ($SYMBOL). It's a $METAL_TYPE, with a mass of $ATOMIC_MASS amu. $NAME has a melting point of $MELTING_POINT celsius and a boiling point of $BOILING_POINT celsius."
             done
     else
         echo "I could not find that element in the database."
@@ -35,10 +35,10 @@ then
     then
             echo $QUERY_RESULTS | while read TYPE_ID BAR ATOMIC_NUMBER BAR SYMBOL BAR NAME BAR ATOMIC_MASS BAR MELTING_POINT BAR BOILING_POINT BAR METAL_TYPE
             do
-                echo "The element with the atomic number $ATOMIC_NUMBER is $NAME ($SYMBOL). It's a $METAL_TYPE, with a mass of $ATOMIC_MASS amu. $NAME has a melting point of $MELTING_POINT celsius and a boiling point of $BOILING_POINT celsius."
+                echo "The element the atomic number $ATOMIC_NUMBER is $NAME ($SYMBOL). It's a $METAL_TYPE, with a mass of $ATOMIC_MASS amu. $NAME has a melting point of $MELTING_POINT celsius and a boiling point of $BOILING_POINT celsius."
             done
     else
-        echo "I could not find that element in the database."
+        echo "I could not find that element in the database. :0"
 
     fi
 
@@ -50,7 +50,7 @@ then
     then
             echo $QUERY_RESULTS | while read TYPE_ID BAR ATOMIC_NUMBER BAR SYMBOL BAR NAME BAR ATOMIC_MASS BAR MELTING_POINT BAR BOILING_POINT BAR METAL_TYPE
             do
-                echo "The element with the atomic number $ATOMIC_NUMBER is $NAME ($SYMBOL). It's a $METAL_TYPE, with a mass of $ATOMIC_MASS amu. $NAME has a melting point of $MELTING_POINT celsius and a boiling point of $BOILING_POINT celsius."
+                echo "The element with atomic number $ATOMIC_NUMBER is $NAME ($SYMBOL). It's a $METAL_TYPE, with a mass of $ATOMIC_MASS amu. $NAME has a melting point of $MELTING_POINT celsius and a boiling point of $BOILING_POINT celsius."
             done
     else
         echo "I could not find that element in the database. :)"
@@ -60,3 +60,5 @@ then
 else
     echo "The argument provided was not correct: please enter an atomic number, symbol or name of the element you wish to know about."
 fi
+
+echo "'$1' '$TRIMMED'"
