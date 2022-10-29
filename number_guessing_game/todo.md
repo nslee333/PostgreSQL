@@ -2,13 +2,15 @@ number_guess database.
 
 Create a number_guessing_game folder in the project folder for your program
 
-Create number_guess.sh in your number_guessing_game folder and give it executable permissions
+<!-- Create number_guess.sh in your number_guessing_game folder and give it executable permissions -->
 
-Your script should have a shebang at the top of the file that uses #!/bin/bash
+<!-- Your script should have a shebang at the top of the file that uses #!/bin/bash -->
 
 Turn the number_guessing_game folder into a git repository
 
 Your git repository should have at least five commits
+
+
 
 Your script should randomly generate a number that users have to guess
 
@@ -25,6 +27,12 @@ Until they guess the secret number, it should print It's lower than that, guess 
 If anything other than an integer is input as a guess, it should print That is not an integer, guess again:
 
 When the secret number is guessed, your script should print You guessed it in <number_of_guesses> tries. The secret number was <secret_number>. Nice job!
+
+
+
+
+
+
 
 The message for the first commit should be Initial commit
 
