@@ -43,7 +43,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: elements; Type: TABLE; Schema: public; Owner: freecodecamp
+-- Name: elements; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.elements (
@@ -53,10 +53,10 @@ CREATE TABLE public.elements (
 );
 
 
-ALTER TABLE public.elements OWNER TO freecodecamp;
+ALTER TABLE public.elements OWNER TO postgres;
 
 --
--- Name: properties; Type: TABLE; Schema: public; Owner: freecodecamp
+-- Name: properties; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.properties (
@@ -68,10 +68,10 @@ CREATE TABLE public.properties (
 );
 
 
-ALTER TABLE public.properties OWNER TO freecodecamp;
+ALTER TABLE public.properties OWNER TO postgres;
 
 --
--- Name: elements elements_atomic_number_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: elements elements_atomic_number_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.elements
@@ -79,7 +79,7 @@ ALTER TABLE ONLY public.elements
 
 
 --
--- Name: elements elements_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: elements elements_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.elements
@@ -87,7 +87,7 @@ ALTER TABLE ONLY public.elements
 
 
 --
--- Name: properties properties_atomic_number_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: properties properties_atomic_number_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.properties
@@ -95,7 +95,7 @@ ALTER TABLE ONLY public.properties
 
 
 --
--- Name: properties properties_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: properties properties_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.properties
