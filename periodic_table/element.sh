@@ -58,5 +58,3 @@ then
 else
     echo "The argument provided was not correct: please enter an atomic number, symbol or name of the element you wish to know about."
 fi
-
-echo "'$1' '$TRIMMED'"
