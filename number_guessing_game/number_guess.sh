@@ -3,40 +3,31 @@
 echo "Enter your username:"
 read USER_NAME
 
-PSQL="psql -X --username=nslee333 --dbname=number_guess -t -c"
+PSQL="psql -X --username=nslee333 --dbname=number_guess --no-align -q -t -c"
 
 NAME_QUERY=$($PSQL "SELECT user_name FROM players WHERE user_name = '$USER_NAME'")
-TRIMMED=${NAME_QUERY/ /}
 
-if [[ $USER_NAME == $TRIMMED ]]
+if [[ $USER_NAME == "$NAME_QUERY" ]]
 then
     GAMES_PLAYED=$($PSQL "SELECT games_played FROM players WHERE user_name = '$USER_NAME'")
     BEST_GAME=$($PSQL "SELECT best_guess FROM players WHERE user_name = '$USER_NAME'")
 
-    echo "'$GAMES_PLAYED'"
-    echo "'$BEST_GAME'"
-
-    GAMES_TRIM=${GAMES_PLAYED/ /}
-    BEST_TRIM=${BEST_GAME/ /}
-
-    echo "'$GAMES_TRIM'"
-    echo "'$BEST_TRIM'"
-    
-
-
     echo "Welcome back, $USER_NAME! You have played '$GAMES_PLAYED' games, and your best game took '$BEST_GAME' guesses."
-    # Add to games_played count.
 
+    ((GAMES_PLAYED++))
+    $PSQL "UPDATE players SET games_played = $GAMES_PLAYED WHERE user_name = '$USER_NAME'"
 else
     echo "Welcome, $USER_NAME! It looks like this is your first time here."
-    INSERT_PLAYER=$($PSQL "INSERT INTO players(user_name, games_played, best_guess) VALUES('$USER_NAME', 1, 1)")
+    
+    $PSQL "INSERT INTO players(user_name, games_played, best_guess) VALUES('$USER_NAME', 1, 50)"
 fi
 
 RAND_NUM=$(( RANDOM % 1000 + 1 ))
-echo $RAND_NUM
 
 echo "Guess the secret number between 1 and 1000:"
+
 NUM_GUESSES=0
+
 while read USER_GUESS
 do
     ((NUM_GUESSES++))
@@ -53,15 +44,13 @@ do
     then
         echo "It's lower than that, guess again:"
         continue
-    elif [[ $USER_GUESS == $RAND_NUM ]]
+    elif [[ $USER_GUESS == "$RAND_NUM" ]]
     then 
+    echo "You guessed it in $NUM_GUESSES tries. The secret number was $RAND_NUM. Nice job!"
         if [[ $NUM_GUESSES < $BEST_GAME ]]
         then
-            $($PSQL "UPDATE players SET best_guess = $NUM_GUESSES WHERE user_name = '$USER_NAME'")
+            $PSQL "UPDATE players SET best_guess = $NUM_GUESSES WHERE user_name = '$USER_NAME'"
         fi
-        INCREMENT_GAMES_PLAYED=$((GAMES_PLAYED++))
-        echo $INCREMENT_GAMES_PLAYED
-        $PSQL "UPDATE players SET games_played = $INCREMENT_GAMES_PLAYED WHERE user_name = '$USER_NAME'"
         break
     fi
 done
