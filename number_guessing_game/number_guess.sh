@@ -14,6 +14,7 @@ then
 
     echo "Welcome back, $USER_NAME! You have played $GAMES_PLAYED games, and your best game took $BEST_GAME guesses."
 
+
     ((GAMES_PLAYED++))
     $PSQL "UPDATE players SET games_played = $GAMES_PLAYED WHERE user_name = '$USER_NAME'"
 else
@@ -23,6 +24,7 @@ else
 fi
 
 RAND_NUM=$(( RANDOM % 1000 + 1 ))
+echo $RAND_NUM
 
 echo "Guess the secret number between 1 and 1000:"
 
@@ -31,6 +33,8 @@ NUM_GUESSES=0
 while read USER_GUESS
 do
     ((NUM_GUESSES++))
+    echo $NUM_GUESSES current guesses
+    echo "'$BEST_GAME'" best game
     REG_EX='^[0-9]{1,4}$'
     if [[ ! $USER_GUESS =~ $REG_EX ]] # -> If not an INT, echo message
     then
@@ -44,13 +48,19 @@ do
     then
         echo "It's lower than that, guess again:"
         continue
-    elif [[ $USER_GUESS == "$RAND_NUM" ]]
+    elif [[ $USER_GUESS == $RAND_NUM ]]
     then 
     echo "You guessed it in $NUM_GUESSES tries. The secret number was $RAND_NUM. Nice job!"
-        if [[ $NUM_GUESSES < $BEST_GAME || $BEST_GAME == 0 ]]
+        if [[ $BEST_GAME == '' ]]
         then
             $PSQL "UPDATE players SET best_guess = $NUM_GUESSES WHERE user_name = '$USER_NAME'"
+            echo "BEST_GAME = 0 "
+            break
+        elif [[ $NUM_GUESSES < $BEST_GAME ]]
+        then
+            $PSQL "UPDATE players SET best_guess = $NUM_GUESSES WHERE user_name = '$USER_NAME'"
+            echo "NUM_GUESSES < BEST GAME"
+            break
         fi
-        break
     fi
 done
